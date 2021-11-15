@@ -87,6 +87,8 @@ if __name__ == "__main__":
             proj,_,_,_ = dxchange.read_aps_2bm(fname,proj = (start,stop,step))
             proj = flat_dark_correction(proj, flat, reshaped_dark)
             output['exchange']['data'][start:stop,:,:]=proj
+            # dxchange.writer.write_stack_tiff(proj,fname=u"{}/{}/{}".format(outputname,stop,fname),dtype=np.uint16,digit=3)
+    
             # print(f'chunk {stop:03} out of {length} has been corrected and written to the output hdf file.')
     # print ("--- %.1f seconds ---" % (time.time() - start_time))
     
